@@ -6,6 +6,7 @@ win+z,打开选中的内容进行搜索.<br/>
 win+x,打开选中的链接、或文件夹路径.<br/>
 Alt+鼠标滚轮：水平滚轮移动（类似Shift+鼠标滚轮）.<br/>
 Alt+4,打开任意文件里配置内容的内容并回车（可根据需要进行修改，比如经常打开一个链接是需要密码的，按一下这个键就不用手动输入了）.<br/>
+不影响使用原来的alt键，新的CapsLock代替原来的Alt,例如原来软件里的快捷alt+C则变为CapsLock+C<br/>
 需要先在[autohotkey官网下载软件](https://www.autohotkey.com/).<br/>
 
 # Alt Plus
