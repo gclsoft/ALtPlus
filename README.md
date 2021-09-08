@@ -33,7 +33,7 @@ Alt+4,打开任意文件里配置内容的内容并回车（可根据需要进�
 
 
 Use it whatever and wherever you like. Hope it help<br/>
-感谢支持：
+感谢支持：<br/>
 <img width="350" src="https://user-images.githubusercontent.com/1269898/132538500-48505f21-0cc3-4ad5-9fe6-21ab04a0ffc2.png"/>
 
 <img width="350"  src="https://user-images.githubusercontent.com/1269898/132538628-df604a43-8dd3-446c-8609-5e3b3d1afcbb.png"/>
