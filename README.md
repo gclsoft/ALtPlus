@@ -8,6 +8,7 @@ Alt+鼠标滚轮：水平滚轮移动（类似Shift+鼠标滚轮）.<br/>
 Alt+4,打开任意文件里配置内容的内容并回车（可根据需要进行修改，比如经常打开一个链接是需要密码的，按一下这个键就不用手动输入了）.<br/>
 不影响使用原来的alt键，新的CapsLock代替原来的Alt,例如原来软件里的快捷alt+C则变为CapsLock+C<br/>
 需要先在[autohotkey官网下载软件](https://www.autohotkey.com/).<br/>
+工具源码：[https://github.com/gclsoft/ALtPlus](https://github.com/gclsoft/ALtPlus) 下载下来直接双击打开ALtPlus.ahk
 
 # Alt Plus
  This Script is wrote by Gan Chuanli via AutoHotKey Script. It turns Alt into an useful function Key by combining Alt with almost all other keys in the keyboard.
