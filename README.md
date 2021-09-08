@@ -8,20 +8,19 @@
 
 |  Key |  Function  |
 | ------------ | ------------ |
-|  Alt + zx     | 前进 后退                        |
-|  Alt;             | {ESC}  Especially Convient for vim user      |
-|  CaspLock + `          | {Alt}Alt Switcher as a Substituent |
+|  Alt + zx     | 后退 前进                    |
+|  Alt + `          | {CapsLock}CapsLock Switcher as a Substituent |
 |  Alt + hjklwb     | Vim-Style Cursor Mover                       |
-|  CaspLock + uiop       | Convient Home/End PageUp/PageDn              |
-|  CaspLock + nm,.       | Convient Delete Controller                   |
+|  Alt + uiop       | Convient Home/End PageUp/PageDn              |
+|  Alt + nm,.       | Convient Delete Controller                   |
 |  Alt + cvay     | Windows-Style Editor                         |
 |  Alt + Direction  | Mouse Move                                   |
 |  Alt + Enter      | Mouse Click                                  |
-|  CaspLock + {F1}~{F6}  | Media Volume Controller                      |
+|  Alt + {F1}~{F6}  | Media Volume Controller                      |
 |  Alt + qs         | Windows & Tags Control                       |
 |  Alt + ;'[]       | Convient Key Mapping                         |
-|  CaspLock + dfert      | Frequently Used Programs (Self Defined)      |
-|  CaspLock + 123456     | Dev-Hotkey for Visual Studio (Self Defined)  |
+|  Alt + dfert      | Frequently Used Programs (Self Defined)      |
+|  Alt + 123456     | Dev-Hotkey for Visual Studio (Self Defined)  |
 |  Alt + 67890-=    | Shifter as Shift                             |
 
 
