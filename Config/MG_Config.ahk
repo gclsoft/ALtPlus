@@ -205,6 +205,12 @@ MG_Gesture_RB_:
 	if (MG_IsTarget3()) {
 		;取消手势
 		MG_Abort()
+	} else if (MG_IsTarget4()) {
+		;单击 左键
+		MG_Click("LB")
+	} else if (MG_IsTarget1()) {
+		;单击 左键
+		MG_Click("LB")
 	} else if (!MG_IsExDefault()){
 		;激活窗口
 		MG_WinActivate()
@@ -214,6 +220,10 @@ return
 MG_GetAction_RB_:
 	if (MG_IsTarget3()) {
 		MG_ActionStr := "取消手势"
+	} else if (MG_IsTarget4()) {
+		MG_ActionStr := "单击 左键"
+	} else if (MG_IsTarget1()) {
+		MG_ActionStr := "单击 左键"
 	} else if (!MG_IsExDefault()){
 		MG_ActionStr := "激活窗口"
 	}
