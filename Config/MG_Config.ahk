@@ -206,11 +206,11 @@ MG_Gesture_RB_:
 		;取消手势
 		MG_Abort()
 	} else if (MG_IsTarget4()) {
-		;单击 左键
-		MG_Click("LB")
+		;激活窗口
+		MG_WinActivate()
 	} else if (MG_IsTarget1()) {
-		;单击 左键
-		MG_Click("LB")
+		;激活窗口
+		MG_WinActivate()
 	} else if (!MG_IsExDefault()){
 		;激活窗口
 		MG_WinActivate()
@@ -221,9 +221,9 @@ MG_GetAction_RB_:
 	if (MG_IsTarget3()) {
 		MG_ActionStr := "取消手势"
 	} else if (MG_IsTarget4()) {
-		MG_ActionStr := "单击 左键"
+		MG_ActionStr := "激活窗口"
 	} else if (MG_IsTarget1()) {
-		MG_ActionStr := "单击 左键"
+		MG_ActionStr := "激活窗口"
 	} else if (!MG_IsExDefault()){
 		MG_ActionStr := "激活窗口"
 	}
@@ -269,27 +269,27 @@ return
 
 MG_Gesture_RB_U_:
 	if (!MG_IsExDefault()) {
-		;跳至文首
-		Send, ^{Home}
+		;跳至上一页
+		Send, {PgUp}
 	}
 return
 
 MG_GetAction_RB_U_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "跳至文首"
+		MG_ActionStr := "跳至上一页"
 	}
 return
 
 MG_Gesture_RB_D_:
 	if (!MG_IsExDefault()) {
-		;跳至文末
-		Send, ^{End}
+		;下一页
+		Send, {PgDn}
 	}
 return
 
 MG_GetAction_RB_D_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "跳至文末"
+		MG_ActionStr := "下一页"
 	}
 return
 
@@ -347,25 +347,27 @@ return
 
 MG_Gesture_RB_UL_:
 	if (!MG_IsExDefault()) {
-		Send, {PgUp}
+		;跳至文首
+		Send, ^{Home}
 	}
 return
 
 MG_GetAction_RB_UL_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "Send, {PgUp}"
+		MG_ActionStr := "跳至文首"
 	}
 return
 
 MG_Gesture_RB_UR_:
 	if (!MG_IsExDefault()) {
-		Send, {PgDn}
+		;跳至文末
+		Send, ^{End}
 	}
 return
 
 MG_GetAction_RB_UR_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "Send, {PgDn}"
+		MG_ActionStr := "跳至文末"
 	}
 return
 
