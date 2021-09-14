@@ -369,14 +369,14 @@ return
 
 MG_Gesture_RB_DL_:
 	if (!MG_IsExDefault()) {
-		;按 Ctrl+W
-		Send, ^w
+		;关闭窗口
+		PostMessage, 0x0010
 	}
 return
 
 MG_GetAction_RB_DL_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "按 Ctrl+W"
+		MG_ActionStr := "关闭窗口"
 	}
 return
 
@@ -388,8 +388,8 @@ MG_Gesture_RB_DR_:
 		;按 Ctrl+W
 		Send, ^{F4}
 	} else if (!MG_IsExDefault()){
-		;关闭窗口
-		PostMessage, 0x0010
+		;按 Ctrl+W
+		Send, ^w
 	}
 return
 
@@ -399,7 +399,7 @@ MG_GetAction_RB_DR_:
 	} else if (MG_IsTarget4()) {
 		MG_ActionStr := "按 Ctrl+W"
 	} else if (!MG_IsExDefault()){
-		MG_ActionStr := "关闭窗口"
+		MG_ActionStr := "按 Ctrl+W"
 	}
 return
 

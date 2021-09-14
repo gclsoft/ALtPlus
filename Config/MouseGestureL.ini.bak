@@ -115,7 +115,7 @@ G=RB_
 Default=;激活窗口<MG_CR>MG_WinActivate()
 资源管理器/图标=;取消手势<MG_CR>MG_Abort()
 ctrl+F4=;单击 左键<MG_CR>MG_Click("LB")
-浏览器=;激活窗口<MG_CR>MG_WinActivate()
+浏览器=;单击 左键<MG_CR>MG_Click("LB")
 
 [按住右键再按左键]
 G=RB_LB__
