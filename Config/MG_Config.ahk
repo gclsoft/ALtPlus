@@ -11,7 +11,7 @@ MG_LongThreshold=700
 MG_TimeoutThreshold=12
 MG_Timeout=400
 MG_DGInterval=0
-MG_TmReleaseTrigger=3
+MG_TmReleaseTrigger=7
 MG_ORangeDefault=3
 MG_ORangeA=3
 MG_ORangeB=3
@@ -295,25 +295,27 @@ return
 
 MG_Gesture_RB_LU_:
 	if (!MG_IsExDefault()) {
-		
+		;最大化
+		PostMessage, 0x0112, 0xF030, 0
 	}
 return
 
 MG_GetAction_RB_LU_:
 	if (!MG_IsExDefault()) {
-		
+		MG_ActionStr := "最大化"
 	}
 return
 
 MG_Gesture_RB_LD_:
 	if (!MG_IsExDefault()) {
-		
+		;还原
+		PostMessage, 0x0112, 0xF120, 0
 	}
 return
 
 MG_GetAction_RB_LD_:
 	if (!MG_IsExDefault()) {
-		
+		MG_ActionStr := "还原"
 	}
 return
 
@@ -345,25 +347,25 @@ return
 
 MG_Gesture_RB_UL_:
 	if (!MG_IsExDefault()) {
-		
+		Send, {PgUp}
 	}
 return
 
 MG_GetAction_RB_UL_:
 	if (!MG_IsExDefault()) {
-		
+		MG_ActionStr := "Send, {PgUp}"
 	}
 return
 
 MG_Gesture_RB_UR_:
 	if (!MG_IsExDefault()) {
-		
+		Send, {PgDn}
 	}
 return
 
 MG_GetAction_RB_UR_:
 	if (!MG_IsExDefault()) {
-		
+		MG_ActionStr := "Send, {PgDn}"
 	}
 return
 

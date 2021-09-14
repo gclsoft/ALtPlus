@@ -12,7 +12,7 @@ LongThreshold=700
 TimeoutThreshold=12
 Timeout=400
 DGInterval=0
-TmReleaseTrigger=3
+TmReleaseTrigger=7
 ORangeDefault=3
 ORangeA=3
 ORangeB=3
@@ -138,6 +138,7 @@ Default=;跳至文末<MG_CR>Send, ^{End}
 
 [按住右键←↑]
 G=RB_LU_
+Default=;最大化<MG_CR>PostMessage, 0x0112, 0xF030, 0
 
 [按住右键←↓]
 G=RB_LD_
@@ -152,16 +153,18 @@ Default=;最小化<MG_CR>PostMessage, 0x0112, 0xF020, 0
 
 [按住右键↑←]
 G=RB_UL_
+Default=Send, {PgUp}
 
 [按住右键↑→]
 G=RB_UR_
+Default=Send, {PgDn}
 
 [按住右键↓←]
 G=RB_DL_
-Default=;按 Ctrl+W<MG_CR>Send, ^w
+Default=;关闭窗口<MG_CR>PostMessage, 0x0010
 
 [按住右键↓→]
 G=RB_DR_
-Default=;关闭窗口<MG_CR>PostMessage, 0x0010
+Default=;按 Ctrl+W<MG_CR>Send, ^w
 浏览器=;按 Ctrl+W<MG_CR>Send, ^w
 ctrl+F4=;按 Ctrl+W<MG_CR>Send, ^{F4}
