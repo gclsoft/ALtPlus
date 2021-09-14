@@ -278,11 +278,11 @@ LAlt & Down::  MouseMove, 0, 10, 0, R                            ;|
 LAlt & Left::  MouseMove, -10, 0, 0, R                           ;|
 LAlt & Right:: MouseMove, 10, 0, 0, R                            ;|
 ;-----------------------------------o                                ;|
-LAlt & Enter::                                                   ;|
-SendEvent {Blind}{LButton down}                                      ;|
-KeyWait Enter                                                        ;|
-SendEvent {Blind}{LButton up}                                        ;|
-return                                                               ;|
+;LAlt & Enter::                                                   ;|
+;SendEvent {Blind}{LButton down}                                      ;|
+;KeyWait Enter                                                        ;|
+;SendEvent {Blind}{LButton up}                                        ;|
+;return                                                               ;|
 ;---------------------------------------------------------------------o
 
 
@@ -701,7 +701,7 @@ Convert_underscore_to_cc()
 ;                    Inv_Char:= Substr(Clipboard, A_Index, 1)
 ;
                 ; if upper case
-                if Inv_Char is upper
+                if Char is upper
                 {
                     ; convert to lower case
                    Char_Out:= Char_Out Chr(Asc(Char) + 32)
