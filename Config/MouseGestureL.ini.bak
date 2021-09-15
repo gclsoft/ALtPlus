@@ -122,19 +122,19 @@ G=RB_LB__
 
 [按住右键←]
 G=RB_L_
-Default=;后退<MG_CR>Send, !{Left}
+Default=;后退 或 Alt+向左移<MG_CR>if GetKeyState("LAlt") = 0                                      <MG_CR>    Send, !{Left}                                                     <MG_CR>else                                                          <MG_CR>    Send, {Left}                                 <MG_CR>return
 
 [按住右键→]
 G=RB_R_
-Default=;前进<MG_CR>Send, !{Right}
+Default=;前进 或 Alt+向右移<MG_CR>if GetKeyState("LAlt") = 0                                      <MG_CR>    Send, !{Right}                                                     <MG_CR>else                                                          <MG_CR>    Send, {Right}                                 <MG_CR>return
 
 [按住右键↑]
 G=RB_U_
-Default=;跳至文首<MG_CR>Send, ^{Home}
+Default=;跳至上一页 或 Alt+向上移<MG_CR>if GetKeyState("LAlt") = 0                                      <MG_CR>    Send, {PgUp}                                                 <MG_CR>else                                                          <MG_CR>    Send, {Up}<MG_CR>return
 
 [按住右键↓]
 G=RB_D_
-Default=;跳至文末<MG_CR>Send, ^{End}
+Default=;下一页<MG_CR>Send, {PgDn}
 
 [按住右键←↑]
 G=RB_LU_
@@ -154,11 +154,11 @@ Default=;最小化<MG_CR>PostMessage, 0x0112, 0xF020, 0
 
 [按住右键↑←]
 G=RB_UL_
-Default=Send, {PgUp}
+Default=;跳至文首<MG_CR>Send, ^{Home}
 
 [按住右键↑→]
 G=RB_UR_
-Default=Send, {PgDn}
+Default=;跳至文末<MG_CR>Send, ^{End}
 
 [按住右键↓←]
 G=RB_DL_

@@ -243,53 +243,69 @@ return
 
 MG_Gesture_RB_L_:
 	if (!MG_IsExDefault()) {
-		;后退
-		Send, !{Left}
+		;后退 或 Alt+向左移
+		if GetKeyState("LAlt") = 0                                      
+		    Send, !{Left}                                                     
+		else                                                          
+		    Send, {Left}                                 
+		return
 	}
 return
 
 MG_GetAction_RB_L_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "后退"
+		MG_ActionStr := "后退 或 Alt+向左移"
 	}
 return
 
 MG_Gesture_RB_R_:
 	if (!MG_IsExDefault()) {
-		;前进
-		Send, !{Right}
+		;前进 或 Alt+向右移
+		if GetKeyState("LAlt") = 0                                      
+		    Send, !{Right}                                                     
+		else                                                          
+		    Send, {Right}                                 
+		return
 	}
 return
 
 MG_GetAction_RB_R_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "前进"
+		MG_ActionStr := "前进 或 Alt+向右移"
 	}
 return
 
 MG_Gesture_RB_U_:
 	if (!MG_IsExDefault()) {
-		;跳至上一页
-		Send, {PgUp}
+		;跳至上一页 或 Alt+向上移
+		if GetKeyState("LAlt") = 0                                      
+		    Send, {PgUp}                                                 
+		else                                                          
+		    Send, {Up}
+		return
 	}
 return
 
 MG_GetAction_RB_U_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "跳至上一页"
+		MG_ActionStr := "跳至上一页 或 Alt+向上移"
 	}
 return
 
 MG_Gesture_RB_D_:
 	if (!MG_IsExDefault()) {
-		;下一页
-		Send, {PgDn}
+		;下一页 或 Alt+向下移
+		if GetKeyState("LAlt") = 0                                      
+		    Send, {PgDn}
+		else                                                          
+		    Send, {Down}
+		return
 	}
 return
 
 MG_GetAction_RB_D_:
 	if (!MG_IsExDefault()) {
-		MG_ActionStr := "下一页"
+		MG_ActionStr := "下一页 或 Alt+向下移"
 	}
 return
 
