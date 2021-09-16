@@ -278,10 +278,13 @@ return
 MG_Gesture_RB_U_:
 	if (!MG_IsExDefault()) {
 		;跳至上一页 或 Alt+向上移
-		if GetKeyState("LAlt") = 0                                      
-		    Send, {PgUp}                                                 
-		else                                                          
+		if GetKeyState("LAlt") = 0
+		{
+		    Send, {PgUp} 
+		}                         
+		else{                                                          
 		    Send, {Up}
+		}
 		return
 	}
 return

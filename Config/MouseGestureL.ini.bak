@@ -130,11 +130,11 @@ Default=;前进 或 Alt+向右移<MG_CR>if GetKeyState("LAlt") = 0              
 
 [按住右键↑]
 G=RB_U_
-Default=;跳至上一页 或 Alt+向上移<MG_CR>if GetKeyState("LAlt") = 0                                      <MG_CR>    Send, {PgUp}                                                 <MG_CR>else                                                          <MG_CR>    Send, {Up}<MG_CR>return
+Default=;跳至上一页 或 Alt+向上移<MG_CR>if GetKeyState("LAlt") = 0<MG_CR>{<MG_CR>    if GetKeyState("LShift") = 0<MG_CR>    		Send, {PgUp}  <MG_CR>    else <MG_CR>		Send, +{Home}<MG_CR>    return   <MG_CR>}                         <MG_CR>else{                                                          <MG_CR>    Send, {Up}<MG_CR>}<MG_CR>return
 
 [按住右键↓]
 G=RB_D_
-Default=;下一页<MG_CR>Send, {PgDn}
+Default=;下一页 或 Alt+向下移<MG_CR>if GetKeyState("LAlt") = 0                                      <MG_CR>    Send, {PgDn}<MG_CR>else                                                          <MG_CR>    Send, {Down}<MG_CR>return
 
 [按住右键←↑]
 G=RB_LU_
