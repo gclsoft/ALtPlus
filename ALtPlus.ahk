@@ -755,7 +755,7 @@ Convert_underscore_to_cc()
     }
 
     ; send desired text
-    Send %Char_Out%
+    Send % getAscStr(Char_Out)
     Len:= Strlen(Char_Out)
 
     ; highlight desired text
