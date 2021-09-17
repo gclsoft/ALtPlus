@@ -59,7 +59,7 @@ return
 return
 
 CapsLock::LAlt
-!F1:: ;<--窗口置顶 alt+F1,Alt现在是Capslock
+!3:: ;<--窗口置顶 alt+3,Alt现在是Capslock
     WinSet,AlwaysOnTop,Toggle,A
     ToolTip,Top Window
     Sleep,500
