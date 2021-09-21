@@ -273,10 +273,10 @@ return                                                               ;|
 ;                  LAlt + Right |  Mouse Right                   ;|
 ;    LAlt + Enter(Push Release) |  Mouse Left Push(Release)      ;|
 ;-----------------------------------o---------------------------------o
-LAlt & Up::    MouseMove, 0, -10, 0, R                           ;|
-LAlt & Down::  MouseMove, 0, 10, 0, R                            ;|
-LAlt & Left::  MouseMove, -10, 0, 0, R                           ;|
-LAlt & Right:: MouseMove, 10, 0, 0, R                            ;|
+CapsLock & Up::    MouseMove, 0, -10, 0, R                           ;|
+CapsLock & Down::  MouseMove, 0, 10, 0, R                            ;|
+CapsLock & Left::  MouseMove, -10, 0, 0, R                           ;|
+CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
 ;-----------------------------------o                                ;|
 ;LAlt & Enter::                                                   ;|
 ;SendEvent {Blind}{LButton down}                                      ;|
