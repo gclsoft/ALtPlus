@@ -313,8 +313,8 @@ LAlt & n:: Send, ^{BS}                                           ;|
 ;                     LAlt + w  |  Ctrl + Right(Move as [vim: w]);|
 ;                     LAlt + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
-LAlt & z:: Send {XButton1}                                             ;|
-LAlt & x:: Send {XButton2}                                              ;|
+LAlt & z:: Send, !{Left}                                             ;|
+LAlt & x:: Send, !{Right}                                            ;|
 LAlt & c:: Send, ^c                                              ;|
 LAlt & v:: Send, ^v                                              ;|
 LAlt & a:: Send, ^a                                              ;|
