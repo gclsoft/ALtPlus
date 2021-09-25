@@ -32,6 +32,7 @@
 ;=====================================================================o
 ;                       LAlt Initializer                         ;|
 ;---------------------------------------------------------------------o
+
 SetCapsLockState, AlwaysOff                                          ;|
 ;---------------------------------------------------------------------o
 
@@ -273,10 +274,10 @@ return                                                               ;|
 ;                  LAlt + Right |  Mouse Right                   ;|
 ;    LAlt + Enter(Push Release) |  Mouse Left Push(Release)      ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & Up::    MouseMove, 0, -10, 0, R                           ;|
-CapsLock & Down::  MouseMove, 0, 10, 0, R                            ;|
-CapsLock & Left::  MouseMove, -10, 0, 0, R                           ;|
-CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
+; CapsLock & Up::    MouseMove, 0, -10, 0, R                           ;|
+; CapsLock & Down::  MouseMove, 0, 10, 0, R                            ;|
+; CapsLock & Left::  MouseMove, -10, 0, 0, R                           ;|
+; CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
 ;-----------------------------------o                                ;|
 ;LAlt & Enter::                                                   ;|
 ;SendEvent {Blind}{LButton down}                                      ;|
@@ -313,11 +314,11 @@ LAlt & n:: Send, ^{BS}                                           ;|
 ;                     LAlt + w  |  Ctrl + Right(Move as [vim: w]);|
 ;                     LAlt + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
-LAlt & z:: Send, !{Left}                                             ;|
-LAlt & x:: Send, !{Right}                                            ;|
-LAlt & c:: Send, ^c                                              ;|
-LAlt & v:: Send, ^v                                              ;|
-LAlt & a:: Send, ^a                                              ;|
+LAlt & z:: Send {XButton1}                                             ;|
+LAlt & x:: Send {XButton2}  
+; LAlt & c:: Send, ^c                                              ;|
+; LAlt & v:: Send, ^v                                              ;|
+; LAlt & a:: Send, ^a                                              ;|
 LAlt & y:: Send, ^y                                              ;|
 LAlt & w:: Send, ^{Right}                                        ;|
 LAlt & b:: Send, ^{Left}                                         ;|
