@@ -60,7 +60,7 @@ return
 return
 
 CapsLock::LAlt
-!3:: ;<--窗口置顶 alt+3,Alt现在是Capslock
+LAlt & F6:: ;<--窗口置顶 alt+3,Alt现在是Capslock
     WinSet,AlwaysOnTop,Toggle,A
     ToolTip,Top Window
     Sleep,500
@@ -72,7 +72,7 @@ CapsLock::LAlt
 ;---------------------------------o-----------------------------------o
 ;                    LAlt + ` | {LAlt}                       ;|
 ;---------------------------------o-----------------------------------o
-LAlt & `::                                                       ;|
+LAlt & F12::                                                     ;|
 GetKeyState, CapsLockState, LAlt, T                              ;|
 if CapsLockState = D                                                 ;|
     SetCapsLockState, AlwaysOff                                      ;|
@@ -315,7 +315,7 @@ LAlt & n:: Send, ^{BS}                                           ;|
 ;                     LAlt + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
 LAlt & z:: Send {XButton1}                                             ;|
-LAlt & x:: Send {XButton2}  
+LAlt & x:: Send {XButton2}
 ; LAlt & c:: Send, ^c                                              ;|
 ; LAlt & v:: Send, ^v                                              ;|
 ; LAlt & a:: Send, ^a                                              ;|
@@ -338,9 +338,9 @@ LAlt & b:: Send, ^{Left}                                         ;|
 ;LAlt & F1:: Send, {Volume_Mute}                                  ;|
 ;LAlt & F2:: Send, {Volume_Down}                                  ;|
 ;LAlt & F3:: Send, {Volume_Up}                                    ;|
-LAlt & F4:: Send, {Media_Play_Pause}                             ;|
-LAlt & F5:: Send, {Media_Next}                                   ;|
-LAlt & F6:: Send, {Media_Stop}                                   ;|
+LAlt & F10:: Send, {Media_Play_Pause}                             ;|
+LAlt & F11:: Send, {Media_Next}                                   ;|
+;LAlt & F12:: Send, {Media_Stop}                                   ;|
 ;---------------------------------------------------------------------o
 
 
@@ -442,7 +442,7 @@ getAscStr(str)
 	return out
 }
 ;可以改为经常输入的密码(注意密码不要都一样),支持汉字
-!4::
+LAlt & F5::
 {
 Send % getAscStr("rg6y")
 Send, {Enter}
