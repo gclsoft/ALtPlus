@@ -35,8 +35,8 @@
 
 SetCapsLockState, AlwaysOff                                          ;|
 ;---------------------------------------------------------------------o
-
-
+;LWin Up::return
+        ; 这样写的话 LWin （左边的 Win 键）就完全废掉了。
 RAlt::Send {Click Left}
 *RCtrl::Send {Click Right down}
 *RCtrl Up::Send {Click Right up}
@@ -52,7 +52,15 @@ RAlt::Send {Click Left}
 	run https://www.google.com/search?q=%clipboard%
 return
 
+
 #x::  			;win+x
+	Send ^c   	;输入 ctrl+c
+	sleep,100  	;等待100毫秒
+	;根据选中的内容打开链接
+	run, https://%clipboard%
+return
+
+#c::  			;win+x
 	Send ^c   	;输入 ctrl+c
 	sleep,100  	;等待100毫秒
 	;根据选中的内容打开链接
@@ -60,13 +68,6 @@ return
 return
 
 CapsLock::LAlt
-LAlt & F6:: ;<--窗口置顶 alt+3,Alt现在是Capslock
-    WinSet,AlwaysOnTop,Toggle,A
-    ToolTip,Top Window
-    Sleep,500
-    ToolTip
-    return
-    
 ;=====================================================================o
 ;                       LAlt Switcher:                           ;|
 ;---------------------------------o-----------------------------------o
@@ -380,7 +381,7 @@ return                                                               ;|
 ;                     LAlt + t  |  Open Text Editor              ;|
 ;-----------------------------------o---------------------------------o
 ; LAlt & d:: Send, !d                                              ;|
-LAlt & /:: Send, ^/                                             ;|
+;LAlt & /:: Send, ^/                                             ;|
 ; LAlt & e:: Run http://cn.bing.com/                               ;|
 ;LAlt & r:: Run Powershell                                        ;|
 ; LAlt & t:: Run C:\Users\user\AppData\Local\Programs\Microsoft VS Code\Code.exe    ;|
