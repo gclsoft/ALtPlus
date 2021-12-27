@@ -37,10 +37,7 @@ SetCapsLockState, AlwaysOff                                          ;|
 ;---------------------------------------------------------------------o
 ;LWin Up::return
         ; 这样写的话 LWin （左边的 Win 键）就完全废掉了。
-RAlt::Send {Click Left}
-*RCtrl::Send {Click Right down}
-*RCtrl Up::Send {Click Right up}
-;PgUp::Send {Click Right up}
+
 *PrintScreen::Send {Click Middle down}
 *PrintScreen Up::Send {Click Middle up}
 
