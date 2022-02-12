@@ -225,7 +225,7 @@ return                                                               ;|
 ;                      LAlt + p |  PageDown                      ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
-LAlt & u::                                                       ;|
+LAlt & p::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("LShift") = 0                                        ;|
@@ -243,7 +243,7 @@ else {                                                               ;|
 }                                                                    ;|
 return                                                               ;|
 ;-----------------------------------o                                ;|
-LAlt & p::                                                       ;|
+LAlt & [::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("LShift") = 0                                        ;|
@@ -384,7 +384,7 @@ return                                                               ;|
 ; LAlt & t:: Run C:\Users\user\AppData\Local\Programs\Microsoft VS Code\Code.exe    ;|
 ;---------------------------------------------------------------------o
 
-
+RAlt::Send {Click Left}
 ;=====================================================================o
 ;                        LAlt Char Mapping                       ;|
 ;-----------------------------------o---------------------------------o
