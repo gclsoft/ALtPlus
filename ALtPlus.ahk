@@ -1,10 +1,8 @@
 ;=====================================================================o
-;                   Gan Chuanli's AHK Script                         | 
 ;                      LAlt Enhancement                           |
 ;---------------------------------------------------------------------o
 ;Description:                                                         |
-;    This Script is wrote by Gan Chuanli via AutoHotKey Script. It   |
-; Provieds an enhancement towards the "Useless Key" LAlt, and     |
+;    It Provieds an enhancement towards the "Useless Key" LAlt, and     |
 ; turns LAlt into an useful function Key just like Ctrl and Alt   |
 ; by combining LAlt with almost all other keys in the keyboard.   |
 ;                                                                     |
@@ -36,7 +34,7 @@
 SetCapsLockState, AlwaysOff                                          ;|
 ;---------------------------------------------------------------------o
 ;LWin Up::return
-        ; 这样写的话 LWin （左边的 Win 键）就完全废掉了。
+        ; 这样写的话 L_WIN （左边的 Win 键）就完全废掉了。
 
 *PrintScreen::Send {Click Middle down}
 *PrintScreen Up::Send {Click Middle up}
@@ -48,7 +46,6 @@ SetCapsLockState, AlwaysOff                                          ;|
 	;根据选中的内容打开搜索
 	run https://www.google.com/search?q=%clipboard%
 return
-
 
 #x::  			;win+x
 	Send ^c   	;输入 ctrl+c
@@ -272,10 +269,48 @@ return                                                               ;|
 ;                  LAlt + Right |  Mouse Right                   ;|
 ;    LAlt + Enter(Push Release) |  Mouse Left Push(Release)      ;|
 ;-----------------------------------o---------------------------------o
-; CapsLock & Up::    MouseMove, 0, -10, 0, R                           ;|
-; CapsLock & Down::  MouseMove, 0, 10, 0, R                            ;|
-; CapsLock & Left::  MouseMove, -10, 0, 0, R                           ;|
-; CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
+
+LAlt & Right::
+DllCall("SetThreadDpiAwarenessContext", "ptr", -3, "ptr")
+CoordMode, Mouse, Screen
+
+SysGet, MonB, MonitorWorkArea , 2
+SysGet, MonA, MonitorWorkArea , 1
+B_ScreenWidth := abs(MonBRight - MonBLeft)
+B_ScreenHeight := abs(MonBTop - MonBBottom)
+
+   MouseGetPos, MouseX, MouseY
+	x := (MouseX - MonBLeft ) * A_ScreenWidth / B_ScreenWidth + MonALeft
+	y := (MouseY - MonBBottom) * A_ScreenHeight / B_ScreenHeight  + MonABottom
+;	x := Ceil((MonALeft+MonARight)/2)
+;	y := Ceil((MonATop+MonABottom)/2)
+	MouseMove, x, y, 0
+	MouseMove, x, y, 0
+
+return
+
+
+LAlt & Left::
+DllCall("SetThreadDpiAwarenessContext", "ptr", -3, "ptr")
+CoordMode, Mouse, Screen
+
+SysGet, MonB, MonitorWorkArea , 2
+SysGet, MonA, MonitorWorkArea , 1
+B_ScreenWidth := abs(MonBRight - MonBLeft)
+B_ScreenHeight := abs(MonBTop - MonBBottom)
+
+   MouseGetPos, MouseX, MouseY
+;     Move to secondary monitorv
+	x := (MouseX - MonALeft ) * B_ScreenWidth / A_ScreenWidth + MonBLeft
+	y := (MouseY - MonABottom) * B_ScreenHeight / A_ScreenHeight  + MonBBottom
+;	x := Ceil((MonBLeft+MonBRight)/2)
+;	y := Ceil((MonBTop+MonBBottom)/2)
+	MouseMove, x, y, 0
+	MouseMove, x, y, 0
+return
+;
+; CapsLock & Left::  MouseMove, -99000, 0, 0                       ;|
+; CapsLock & Right:: MouseMove, 99000, 0, 0                      ;|
 ;-----------------------------------o                                ;|
 ;LAlt & Enter::                                                   ;|
 ;SendEvent {Blind}{LButton down}                                      ;|
@@ -283,7 +318,6 @@ return                                                               ;|
 ;SendEvent {Blind}{LButton up}                                        ;|
 ;return                                                               ;|
 ;---------------------------------------------------------------------o
-
 
 ;=====================================================================o
 ;                           LAlt Deletor                         ;|
@@ -657,150 +691,43 @@ Convert_cc()
     Clipboard:= Clip_Save
 }
 
-; Convert selected text from CAPS_CASE to CamelCase
-;    Ex: THIS_IS_AN_EXAMPLE -> ThisIsAnExample
-; Usage: Windows_Key + Alt + Left Arrow Key
-LAlt & r::
-    Convert_underscore_to_cc()
-RETURN
-Convert_underscore_to_cc()
-{
-    ; save original contents of clipboard
-    Clip_Save:= ClipboardAll
-
-    ; empty clipboard    Clipboard:= ""
-
-    ; copy highlighted text to clipboard
-    Send ^c{delete}
-
-    ; clear variable that will hold output string
-    Char_Out:= ""
-
-    ; Find number of _'s in string by replacing with self
-    ; and counting how many times we do it with ErrorLevel
-    ; Result is in ErrorLevel
-    StringReplace Clipboard,Clipboard,_,_,UseErrorLevel
-
-    ; set Index
-    Index=1
-
-    ; loop for each character in the clipboard
-    Loop % Strlen(Clipboard) - ErrorLevel
-    {
-        ; isolate the character
-        Char:= Substr(Clipboard, Index, 1)
-        ; isolate the next character too
-        Next_Char:= Substr(Clipboard, Index + 1, 1)
-
-        if Index = 1
-        {
-            if Char != "_"
-            {
-;                    ; isolate the character
-;                    Inv_Char:= Substr(Clipboard, A_Index, 1)
-;
-                ; if upper case
-                if Char is upper
-                {
-                    ; convert to lower case
-                   Char_Out:= Char_Out Chr(Asc(Char) + 32)
-                }
-                ; convert to upper case
-;                if Char is lower
-;                {
-;                    Char_Out:= Char_Out Chr(Asc(Char) - 32)
-;                }
-                else
-                {
-                    Char_Out:= Char_Out Char
-                }
-            }
-        }
-        else
-        {
-            ; if _
-            if Chr(Asc(Char)) == Chr(Asc("_"))
-            {
-                if Next_Char != ""
-                {
-                    ; convert to upper case
-                    if Next_Char is lower
-                    {
-                        Char_Out:= Char_Out Chr(Asc(Next_Char) - 32)
-                    }
-                    else
-                    {
-                        Char_Out:= Char_Out Next_Char
-                    }
-                }
-                Index++
-            }
-            else
-            {
-                if Char is upper
-                {
-                    ; convert to lower case
-                    Char_Out:= Char_Out Chr(Asc(Char) + 32)
-                }
-                else
-                {
-                    Char_Out:= Char_Out Char
-                }
-            }
-        }
-
-        ; increment index
-        Index++
-    }
-
-    ; send desired text
-    Send % getAscStr(Char_Out)
-    Len:= Strlen(Char_Out)
-
-    ; highlight desired text
-    Send +{left %Len%}
-
-    ; restore original clipboard
-    Clipboard:= Clip_Save
-}
-
 ; Find selected text
 ;    Ex: Select FindMeInProgram, use this, opens find dialog (if Ctrl-F)
 ;        and pastes FindMeInProgram
 ; Usage: Windows_Key + Alt + F
-!+f::
-Send, ^c
-Sleep 100
-Send, ^f
-Sleep 100
-Send, ^v
-RETURN
+;!+f::
+;Send, ^c
+;Sleep 100
+;Send, ^f
+;Sleep 100
+;Send, ^v
+;RETURN
 
 ; Open windows identical windows explorer
-!+e::
-Send, !d
-Sleep 50
-Send, ^c
-Sleep 50
-Send, #e
-Sleep 300
-Send, !d
-Sleep 50
-Send, ^v
-Sleep 50
-Send, {enter}
-Sleep 50
-Send, #{Right}
-RETURN
+; !+e::
+; Send, !d
+; Sleep 50
+; Send, ^c
+; Sleep 50
+; Send, #e
+; Sleep 300
+; Send, !d
+; Sleep 50
+; Send, ^v
+; Sleep 50
+; Send, {enter}
+; Sleep 50
+; Send, #{Right}
+; RETURN
 
 ; Copy selected text into a Copy FIFO Buffer (can do multiple times)
-^+c::
-FileEncoding UTF-8
-filename := "C:\Temp\_clipboard_buffer.txt"
-Send, ^c
-Sleep 50
-FileAppend, {{clipboard_buffer_delimiter}}%clipboard%, %filename%
-RETURN
+; ^+c::
+; FileEncoding UTF-8
+; filename := "C:\Temp\_clipboard_buffer.txt"
+; Send, ^c
+; Sleep 50
+; FileAppend, {{clipboard_buffer_delimiter}}%clipboard%, %filename%
+; RETURN
 
 ; Paste by getting first item from the Copy Buffer (can do multiple times)
 ; NOTE: Once pasted, you cannot restore that item to the Copy Buffer (e.g. Undo)
