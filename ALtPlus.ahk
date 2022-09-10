@@ -41,29 +41,39 @@ SetCapsLockState, AlwaysOff                                          ;|
 
 ;==选中关键字后,同时按下win+b，打开搜索===============================
 #z::  			;win+b
-	Send ^c   	;输入 ctrl+c
+    Clipboard =
+    Send ^c     ;输入 ctrl+c
+    ClipWait, 2
 	;根据选中的内容打开搜索
 	run https://www.google.com.hk/search?q=%clipboard%
 return
 
 #x::  			;win+x
-	Send ^c   	;输入 ctrl+c
+    Clipboard =
+    Send ^c     ;输入 ctrl+c
+    ClipWait, 2
 	;根据选中的内容打开链接
 	run, https://%clipboard%
 return
 
 #c::  			;win+x
-	Send ^c   	;输入 ctrl+c
+    Clipboard =
+    Send ^c     ;输入 ctrl+c
+    ClipWait, 2
 	;根据选中的内容打开链接
 	run, %clipboard%
 return
 #b::            ;win+x
+    Clipboard =
     Send ^c     ;输入 ctrl+c
+    ClipWait, 2
     ;根据选中的内容打开链接
     run, http://%clipboard%
 return
 #a::            ;win+a
+    Clipboard =
     Send ^c     ;输入 ctrl+c
+    ClipWait, 2
     Send, {Ctrl down}{Alt down}c{Ctrl up}{alt up}
     Send ^v
     Send, {Enter}  
