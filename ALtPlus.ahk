@@ -42,23 +42,31 @@ SetCapsLockState, AlwaysOff                                          ;|
 ;==选中关键字后,同时按下win+b，打开搜索===============================
 #z::  			;win+b
 	Send ^c   	;输入 ctrl+c
-	sleep,100  	;等待100毫秒
 	;根据选中的内容打开搜索
-	run https://www.google.com/search?q=%clipboard%
+	run https://www.google.com.hk/search?q=%clipboard%
 return
 
 #x::  			;win+x
 	Send ^c   	;输入 ctrl+c
-	sleep,100  	;等待100毫秒
 	;根据选中的内容打开链接
 	run, https://%clipboard%
 return
 
 #c::  			;win+x
 	Send ^c   	;输入 ctrl+c
-	sleep,100  	;等待100毫秒
 	;根据选中的内容打开链接
 	run, %clipboard%
+return
+#b::            ;win+x
+    Send ^c     ;输入 ctrl+c
+    ;根据选中的内容打开链接
+    run, http://%clipboard%
+return
+#a::            ;win+a
+    Send ^c     ;输入 ctrl+c
+    Send, {Ctrl down}{Alt down}c{Ctrl up}{alt up}
+    Send ^v
+    Send, {Enter}  
 return
 
 CapsLock::LAlt
@@ -690,89 +698,3 @@ Convert_cc()
     ; restore original clipboard
     Clipboard:= Clip_Save
 }
-
-; Find selected text
-;    Ex: Select FindMeInProgram, use this, opens find dialog (if Ctrl-F)
-;        and pastes FindMeInProgram
-; Usage: Windows_Key + Alt + F
-;!+f::
-;Send, ^c
-;Sleep 100
-;Send, ^f
-;Sleep 100
-;Send, ^v
-;RETURN
-
-; Open windows identical windows explorer
-; !+e::
-; Send, !d
-; Sleep 50
-; Send, ^c
-; Sleep 50
-; Send, #e
-; Sleep 300
-; Send, !d
-; Sleep 50
-; Send, ^v
-; Sleep 50
-; Send, {enter}
-; Sleep 50
-; Send, #{Right}
-; RETURN
-
-; Copy selected text into a Copy FIFO Buffer (can do multiple times)
-; ^+c::
-; FileEncoding UTF-8
-; filename := "C:\Temp\_clipboard_buffer.txt"
-; Send, ^c
-; Sleep 50
-; FileAppend, {{clipboard_buffer_delimiter}}%clipboard%, %filename%
-; RETURN
-
-; Paste by getting first item from the Copy Buffer (can do multiple times)
-; NOTE: Once pasted, you cannot restore that item to the Copy Buffer (e.g. Undo)
-; except by re-copying it
-;^+v::
-;FileEncoding UTF-8
-;filename := "C:\Temp\_clipboard_buffer.txt"
-;clipboard_content := ""
-;new_file_content := ""
-;FileRead, file_text, %filename%
-;
-;copies_array := StrSplit(file_text, "{{clipboard_buffer_delimiter}}")
-;
-;Loop % copies_array.MaxIndex()
-;{
-;    item_content := copies_array[a_index]
-;    ; first item is empty since we start the items with a delimeter,
-;    ; so item at index 2 is what we want on the clipboard
-;    If (a_index == 2)
-;    {
-;        clipboard_content := item_content
-;    }
-;    ; Keep appending other items to the new file content with delimiter to write back
-;    Else If (a_index >= 2)
-;    {
-;        new_file_content = %new_file_content% {{clipboard_buffer_delimiter}} %item_content%
-;    }
-;    Else
-;    {
-;        ; Do nothing for first empty items
-;    }
-;}
-;; Rewrite the file with the new content (e.g. last item popped off)
-;file := FileOpen(filename, "w")
-;if !IsObject(file)
-;{
-;    MsgBox Can't open "%filename%" for reading.
-;    return
-;}
-;file.Write(new_file_content)
-;file.Close()
-;
-;; Finally, paste the popped item
-;clipboard = %clipboard_content%
-;Send, ^v
-;Sleep 50
-;
-;RETURN
