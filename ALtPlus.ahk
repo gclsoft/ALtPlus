@@ -70,10 +70,17 @@ return
     ;根据选中的内容打开链接
     run, http://%clipboard%
 return
+;Search dict app
 #a::            ;win+a
     Clipboard =
     Send ^c     ;输入 ctrl+c
     ClipWait, 2
+    Send, {Ctrl down}{Alt down}c{Ctrl up}{alt up}
+    Send ^v
+    Send, {Enter}  
+return
+;Search dict app
+#s::            ;win+s
     Send, {Ctrl down}{Alt down}c{Ctrl up}{alt up}
     Send ^v
     Send, {Enter}  
