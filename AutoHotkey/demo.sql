@@ -1,0 +1,10 @@
+create index utile_limit_wid_index1 on t_student( student_id, limit_id);
+create index utile_limit_wid_index2 on t_student( s_id, limit_id);
+create index utile_limit_wid_index3 on t_student( stuf_dent_id, limit_id);
+create index utile_limit_wid_index4 on t_student( test_id, limit_id);
+create index utile_limit_wid_index5 on t_student( g_id, limit_id);
+create index utile_limit_wid_index6 on t_student( x_id, limit_id);
+create index utile_limit_wid_index7 on t_student( d_id, limit_id);
+create index utile_limit_wid_index8 on t_student( b_id, limit_id);
+create index utile_limit_wid_index9 on t_student( w_id, limit_id);
+create index utile_limit_wid_index10 on t_student( oe_id, limit_id);
